@@ -1,0 +1,96 @@
+<div class="container">
+  <!-- ALL APPLICATION VIEW using FormController, Display depends on ng-show showDiv -->
+  <div id="positions" ng-controller="FormController" ng-hide="!showDiv">
+
+    <!-- ALL APPLICATION VIEW title -->
+    <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
+
+    <!-- Application Search -->
+    <div style="margin-left: 100px"  class="mdl-textfield mdl-js-textfield">Search:
+      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Search Here" ng-model="searchText">
+    </div>
+
+    <!-- ng-repeat Application -->
+    <ul class="animated zoomIn" id ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
+
+      <div id="list-item">
+
+        <!-- Individual Application Card -->
+        <li id="card">
+          <div id="card-title"><strong>Open Position</strong><br></div>
+
+          <!-- COMPANY CLICK TO EDIT -->
+          <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
+            <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
+          </div>
+          <div ng-show="edit.editorEnabled">
+            <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+          </div>
+
+          <!-- ROLE CLICK TO EDIT -->
+          <div id="field" ng-click="enableEditor($index)"><strong>Role:</strong><br>
+            <span ng-hide="edit.editorEnabled">{{result.role}}</span>
+          </div>
+          <div ng-show="edit.editorEnabled">
+            <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+          </div>
+
+          <!-- JOB DESCRIPTION CLICK TO EDIT -->
+          <div id="field" ng-click="enableEditor($index)"><strong>Job Description:</strong><br>
+           <span ng-hide="edit.editorEnabled">{{result.jobDescription}}</span>
+          </div>
+          <div ng-show="edit.editorEnabled">
+           <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+          </div>
+
+          <!-- APPLIED THROUGH CLICK TO EDIT -->
+          <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
+            <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
+          </div>
+          <div ng-show="edit.editorEnabled">
+            <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+          </div>
+
+          <!-- CONTACT NAME CLICK TO EDIT -->
+          <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
+            <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
+          </div>
+
+          <div ng-show="edit.editorEnabled">
+            <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field" class="mdl-textfield__input" type="text">
+          </div>
+
+          <!-- Save Button -->
+          <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+
+        </li><!-- Closing Individual Application Card -->
+
+        <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
+          <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
+          <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
+          <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
+          <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
+          <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
+          <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
+        </div>
+
+        <div class="add-stage">
+          <div id="card-title"><strong>Add Stage</strong><br></div>
+          <br>
+          <select ng-model="stageattrs.interviewType">
+            <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
+          </select>
+          <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
+          <div id="field"><strong>Last Follow Up</strong><br></div>
+          <input id="field" class="mdl-textfield__input" type="date" placeholder="Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
+          <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
+          <br>
+          <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        </div>
+
+      </div> <!-- Closing list-item -->
+      <br>
+    </ul> <!-- closing ng-repeat Application -->
+  </div> <!-- Closing ALL APPLICATION VIEW-->
+</div>

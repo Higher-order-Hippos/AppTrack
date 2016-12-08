@@ -1,59 +1,69 @@
 <!DOCTYPE html>
-<html>
-<head>
-<link href="./styles/style.css" rel="stylesheet" type="text/css">
-<title>AppTrack</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
-<link href="https://fonts.googleapis.com/css?family=Carme" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-red.min.css" />
-<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-</head>
+<html lang="en">
+  <head>
+    <link href="./styles/style.css" rel="stylesheet" type="text/css">
+    <title>AppTrack</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
 
-<body ng-app="AppTracker">
-  <header class="mdl-layout__header mdl-layout__header--waterfall">
-    <!-- Top row, always visible -->
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span style="font-family: Pacifico" id="title">AppTrak<img src="Assets/Railway.png"/></span>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="waterfall-exp">
-          <i class="material-icons">search</i>
-        </label>
+    <!-- MATERIAL IO SCRIPTS BELOW -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Carme" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-red.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  </head>
 
-      </div>
-    </div>
-    <!-- Bottom row, not visible on scroll -->
-    <div class="mdl-layout__header-row">
-  </div>
-      </div>
-    </div>
-      </nav>
-    </div>
-  </header>
+  <!-- Definining Angular app -->
+  <body ng-app="at">
 
-  <br>
-  <h1 style="font-family: 'Carme', sans-serif;">Create an Account</h1>
+    <!-- Header -->
+    <header class="mdl-layout__header mdl-layout__header--waterfall">
 
-  <div style="margin-left: 300px; margin-top: 30px" ng-controller="SignupController" class="mdl-textfield mdl-js-textfield">
+      <!-- TOP ROW: Title, Search.  Always visible -->
+      <div class="mdl-layout__header-row">
 
-    <form>
-      <input type="text" class="mdl-textfield__input" placeholder="Username" ng-model="username">
-      <input type="password" class="mdl-textfield__input" placeholder="Password" ng-model="password">
+        <!-- Title -->
+        <span style="font-family: Pacifico" id="title">AppTrak<img src="Assets/Railway.png"/></span>
 
-      <br><br><br><br>
-      <a href="http://localhost:8080/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="submitCredentials();">Submit</a>
-    </form>
-  </div>
+        <div class="mdl-layout-spacer"></div>
 
+        <!-- Search Icon -->
+        <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
+          mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
+            <i class="material-icons">search</i>
+          </label>
+        </div>
 
-</body>
-<script src="app.js"></script>
-<script src="signup.js"></script>
-<script src="FormController.js"></script>
+      </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
+
+      <!-- Bottom row, not visible on scroll -->
+      <div class="mdl-layout__header-row"</div>
+
+    </header><!-- Closing header -->
+    <br>
+
+    <!-- SING UP View -->
+    <h1 style="font-family: 'Carme', sans-serif;">Create an Account</h1>
+    <div style="margin-left: 300px; margin-top: 30px" ng-controller="SignupController" class="mdl-textfield mdl-js-textfield">
+
+      <!-- Sign Up form -->
+      <form>
+        <input type="text" class="mdl-textfield__input" placeholder="Username" ng-model="username">
+        <input type="password" class="mdl-textfield__input" placeholder="Password" ng-model="password">
+
+        <br><br><br><br>
+
+        <!-- TODO LMAOOOO, CHANGE THIS TO ACTUAL ROUTING TO '/' -->
+        <a href="http://localhost:8080/" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="submitCredentials();">Submit</a>
+      </form>
+    </div> <!-- Closing SING UP view --> 
+
+  <script src="app.js"></script>
+  <script src="signup.js"></script>
+  <script src="FormController.js"></script>
+
+  </body>
 </html>

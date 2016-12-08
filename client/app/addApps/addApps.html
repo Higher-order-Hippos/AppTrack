@@ -1,0 +1,40 @@
+<div class="container">
+  <!-- ADD APP VIEW using FormController, Display depends on ng-show hideDiv  -->
+  <div id="form" ng-controller="AddAppsController" ng-show="!hideDiv">
+    <form>
+      <div id="outreach" class="mdl-textfield mdl-js-textfield">
+
+        <!--  ADD APP VIEW Title -->
+        <h1 class="animated fadeIn" style="font-family: 'Carme', sans-serif;">New Application</h1>
+
+        <!-- First Column -->
+        <div class="animated fadeIn" id="first">
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Job Search Start Date" ng-model="data.startDate">
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="CoverLetter" ng-model="coverLetter">
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Job Description" ng-model="data.jobDescription">
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
+          <input id="field" class="mdl-textfield__input" type="text" placeholder="Contact Name" ng-model="data.contactName">
+        </div> <!-- Closing First Column -->
+
+        <!-- Second Column -->
+        <div class="animated fadeIn" id="second">
+          <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
+          <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
+          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Type" ng-model="data.contactType">
+          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date Applied" ng-model="data.dateApplied">
+          <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
+          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
+          <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
+
+          <br><br>
+
+          <!-- Add Button -->
+          <button ng-click='submitForm()' id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
+        </div> <!-- Closing Second Column -->
+
+      </div> <!-- Closing outreach div -->
+    </form> <!-- Closing form -->
+  </div> <!--  Closing ADD APP VIEW -->
+</div>

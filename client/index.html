@@ -1,233 +1,78 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <link href="./styles/style.css" rel="stylesheet" type="text/css">
-<title>AppTrack</title>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js">
-</script>
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js">
-</script>
-<!-- MATERIAL IO SCRIPTS BELOW -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Carme" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-red.min.css" />
-<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-</head>
-<body ng-app="AppTracker">
+<html lang="en" ng-app="at">
+  <head>
+    <link href="./styles/style.css" rel="stylesheet" type="text/css">
+    <title>AppTrack</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.9/angular-route.js"></script>
 
-  <header class="mdl-layout__header mdl-layout__header--waterfall">
-    <!-- Top row, always visible -->
-    <div class="mdl-layout__header-row">
-      <!-- Title -->
-      <span style="font-family: Pacifico" id="title">AppTrak<img src="Assets/Railway.png"/></span>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                  mdl-textfield--floating-label mdl-textfield--align-right">
-        <label class="mdl-button mdl-js-button mdl-button--icon"
-               for="waterfall-exp">
-          <i class="material-icons">search</i>
-        </label>
+    <!-- MATERIAL IO SCRIPTS BELOW -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Carme" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-red.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  </head>
 
-      </div>
-    </div>
-    <!-- Bottom row, not visible on scroll -->
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
-<div ng-click="toggle = !toggle">
-    <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised">
-        <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">
-<span ng-show="toggle">Add App</span>
-    <span ng-hide="toggle">All Apps</span>
-        </a></div>
+  <!-- Definining Angular app -->
+  <body>
 
-    </button>
-    <div>
-    <button ng-click="" class="mdl-button--raised">
-        <a ng-click="" class="mdl-navigation__link" href="https://www.google.com/analytics/#?modal_active=none">
-          Analytics
-        </a>
-    </div>
+    <!-- Header -->
+    <header class="mdl-layout__header mdl-layout__header--waterfall">
 
-    </button> </div>
-    </div>
-      </nav>
-    </div>
-  </header>
-  <div id="form" ng-controller="FormController" ng-show="!hideDiv">
-  <form>
-  <div id="outreach" class="mdl-textfield mdl-js-textfield">
+      <!-- TOP ROW: Title, Search.  Always visible -->
+      <div class="mdl-layout__header-row">
 
-<!--       class="mdl-grid" -->
-      <h1 class="animated fadeIn" style="font-family: 'Carme', sans-serif;">New Application</h1>
-    <div class="animated fadeIn" id="first">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Job Search Start Date" ng-model="data.startDate">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Company Name" ng-model=data.companyName>
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Role" ng-model="data.role">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="CoverLetter" ng-model="coverLetter">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Job Description" ng-model="data.jobDescription">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Applied Through" ng-model="data.appliedThrough">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Name" ng-model="data.contactName">
-     </div>
-  <div class="animated fadeIn" id="second">
-      <input id="field"  class="mdl-textfield__input" type="tel" placeholder="Contact Phone" ng-model="data.contactPhone">
-      <input id="field"  class="mdl-textfield__input" type="email" placeholder="Contact Email" ng-model="data.contactEmail">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Contact Type" ng-model="data.contactType">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date Applied" ng-model="data.dateApplied">
-      <input id="field"  class="mdl-textfield__input" type="number" placeholder="LinkedIn Connections" ng-model="data.linkedinConnections">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Date of Last Direct Contact" ng-model="data.dateOfLastContact">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.replyReceived">
-      <br><br>
-      <button ng-click='submitForm()'
-       id="addButton" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Add</button>
- </div>
+        <!-- Title -->
+        <span style="font-family: Pacifico" id="title">AppTrak<img src="Assets/Railway.png"/></span>
 
-  </div>
+        <div class="mdl-layout-spacer"></div>
 
-  <!-- <div id="stage">
-      <h1>Stage</h1>
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Scheduled or Completed?" ng-model="data.scheduledStatus">
-      <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="data.interviewCompletedDate">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="data.interviewerType">
-      <input id="field"  class="mdl-textfield__input" type="date" placeholder="Date of Thank You or Last Follow Up" ng-model="data.dateOfLastFollowUp">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Reply Received" ng-model="data.interviewReplyReceived">
-  </div> -->
-  <!-- <div id="offer"">
-      <h1>Offer</h1>
-      <input id="field"  class="mdl-textfield__input" type="number" placeholder="Contract Time (in # of Months)" ng-model="data.contractTime">
-      <input id="field"  class="mdl-textfield__input" type="number" placeholder="Initial Comp ($)" ng-model="data.initialComp">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Negotiated?(Y/N)" ng-model="data.negotiated">
-      <input id="field"  class="mdl-textfield__input" type="number" placeholder="Final Comp ($)" ng-model="data.finalComp">
-      <input id="field"  class="mdl-textfield__input" type="text" placeholder="Accepted or Rejected?" ng-model="data.acceptReject">
-      <hr>
+        <!-- Search Icon -->
+        <div class= "mdl-textfield mdl-js-textfield mdl-textfield--expandable
+          mdl-textfield--floating-label mdl-textfield--align-right">
+          <label class="mdl-button mdl-js-button mdl-button--icon" for="waterfall-exp">
+            <i class="material-icons">search</i>
+          </label>
+        </div>
 
-  </div> -->
-  </form>
-</div>
-  <!-- <div class="search-one" ng-controller="FormController" class="mdl-textfield mdl-js-textfield" ng-hide="!showDiv">
-     <form>
-       <h1>Get One Job</h1>
-       <input id="field"  type="text" placeholder='Search Company' ng-model="searchText">
-       <button ng-click="getSingleJob()">Get</button>
-         <ol>
-           <li
-           ng-repeat="thejob in job | filter:searchText">
-           <div id="card">{{thejob.role}}
-             <div id="field">Company: {{thejob.companyName}}</div>
-             <div id="field">Role: {{thejob.role}}</div>
-             <div id="field">Job Description: {{thejob.jobDescription}}</div>
-           </div>
-         </li>
-         </ol>
-     </form>
-   </div> -->
-   <div id="positions" ng-controller="FormController" ng-hide="!showDiv">
+      </div> <!-- Closing TOP ROW, div class="mdl-layout__header-row" -->
 
-     <h1 class="animated fadeIn" id="openApps" style="font-family: 'Carme', sans-serif;">Open Applications</h1>
-     <div style="margin-left: 100px"  class="mdl-textfield mdl-js-textfield">Search:
-       <input id="field"  class="mdl-textfield__input" type="text" placeholder="Search Here" ng-model="searchText">
+      <!-- BOTTOM ROW, not visible on scroll -->
+      <div class="mdl-layout__header-row">
+        <div class="mdl-layout-spacer"></div>
 
-     </div>
-           <ul class="animated zoomIn" id ng-repeat='result in results | filter:searchText track by $index' ng-model='results'>
-             <div id="list-item"><li id="card">
-             <div id="card-title"><strong>Open Position</strong><br></div>
-            <!-- COMPANY CLICK TO EDIT -->
-             <div id="field" ng-click="enableEditor($index)"><strong>Company:</strong><br>
-               <span ng-hide="edit.editorEnabled">{{result.companyName}}</span>
-             </div>
-             <div ng-show="edit.editorEnabled">
-               <input ng-model="edit.companyName" ng-show="edit.editorEnabled" id="field"
-               class="mdl-textfield__input" type="text">
-             </div>
-             <!-- ROLE CLICK TO EDIT -->
-             <div id="field" ng-click="enableEditor($index)"><strong>Role:</strong><br>
-               <span ng-hide="edit.editorEnabled">{{result.role}}</span>
-             </div>
-             <div ng-show="edit.editorEnabled">
-               <input ng-model="edit.role" ng-show="edit.editorEnabled" id="field"
-               class="mdl-textfield__input" type="text">
-             </div>
-             <!-- JOB DESCRIPTION CLICK TO EDIT -->
-             <div id="field" ng-click="enableEditor($index)"><strong>Job Description:</strong><br>
-               <span ng-hide="edit.editorEnabled">{{result.jobDescription}}</span>
-             </div>
-             <div ng-show="edit.editorEnabled">
-               <input ng-model="edit.jobDescription" ng-show="edit.editorEnabled" id="field"
-               class="mdl-textfield__input" type="text">
-             </div>
-             <!-- APPLIED THROUGH CLICK TO EDIT -->
-             <div id="field" ng-click="enableEditor($index)"><strong>Applied Through:</strong><br>
-               <span ng-hide="edit.editorEnabled">{{result.appliedThrough}}</span>
-             </div>
-             <div ng-show="edit.editorEnabled">
-               <input ng-model="edit.appliedThrough" ng-show="edit.editorEnabled" id="field"
-               class="mdl-textfield__input" type="text">
-             </div>
-             <!-- CONTACT NAME CLICK TO EDIT -->
-             <div id="field" ng-click="enableEditor($index)"><strong>Contact Name:</strong><br>
-               <span ng-hide="edit.editorEnabled">{{result.contactName}}</span>
-             </div>
-             <div ng-show="edit.editorEnabled">
-               <input ng-model="edit.contactName" ng-show="edit.editorEnabled" id="field"
-               class="mdl-textfield__input" type="text">
-             </div>
-            <button ng-click="save($index, edit)" ng-show="edit.editorEnabled">Save</button>
+        <!-- Navigation -->
+        <nav class="mdl-navigation">
 
-               <!-- <div id="field"><strong>Job Description:</strong> <br>{{result.jobDescription}}</div>
-               <div id="field"><strong>Applied through:</strong> <br>{{result.appliedThrough}}</div>
-               <div id="field"><strong>Contact Name:</strong> <br>{{result.contactName}}</div> -->
+          <!-- Add Aps/All Apps Button -->
+          <!-- This toggles ng-show hideDiv (ADD APP VIEW) and showDiv (All Application View ) -->
+          <div ng-click="toggle = !toggle">
+            <button ng-click="hideDiv = !hideDiv" class="mdl-button--raised">
+              <a ng-click="showDiv = !showDiv" class="mdl-navigation__link" href="">
+                <span ng-show="toggle">Add App</span>
+                <span ng-hide="toggle">All Apps</span>
+              </a>
+            </button>
+          </div>
 
-               <!-- <div id="field"><strong>Contact Phone:</strong> <br>{{result.contactPhone}}</div>
-               <div id="field"><strong>Contact Email:</strong> <br>{{result.contactEmail}}</div> -->
-               <!-- <div id="field"><strong>Contact Type:</strong> <br>{{result.contactType}}</div> -->
-               <!-- <div id="field">Date Applied: {{result.dateApplied}}</div>
-               <div id="field">Last Contacted: {{result.dateOfLastContact}}</div>
-               <div id="field">Reply Received: {{result.replyReceived}}</div> -->
-               <!-- <div id="field">Stages: {{result.stages}}</div> -->
-               <!-- <div id="field">Contract Duration: {{result.contractTime}}</div>
-               <div id="field">Intial Compensation: {{result.initialComp}}</div>
-               <div id="field">Negotiated?: {{result.negotiated}}</div>
-               <div id="field">Final Comp?: {{result.finalComp}}</div>
-               <div id="field">Accept/Reject?: {{result.acceptReject}}</div>
-               <div id="field">_ID: {{result._id}}</div> -->
-             </li>
+        <!-- Analytics Button -->
+          <div>
+            <button ng-click="" class="mdl-button--raised">
+              <a ng-click="" class="mdl-navigation__link" href="https://www.google.com/analytics/#?modal_active=none">
+                Analytics
+              </a>
+            </button>
+          </div>
 
-             <div id="stage-name" ng-repeat="stage in results[$index].stages track by $index" ng-model="results">
-             <div id="card-title"><strong>Stage {{$index + 1}}</strong><br></div>
-               <div id="field"><strong>Interview Type:</strong><br>{{stage.interviewType}}</div>
-               <div id="field"><strong>Date:</strong><br>{{stage.interviewCompletedDate}}</div>
-               <div id="field"><strong>Primary Interviewer Type:</strong><br>{{stage.interviewerType}}</div>
-               <div id="field"><strong>Last Follow Up Date:</strong><br>{{stage.dateOfLastFollowUp}}</div>
-               <div id="field"><strong>Reply Received:</strong><br>{{stage.interviewReplyReceived}}</div>
-             </div>
+        </nav> <!-- Closing Navigation -->
+      </div> <!-- Closing BOTTOM ROW -->
+    </header> <!-- Closing HEADER -->
 
-             <div class="add-stage">
 
-             <div id="card-title"><strong>Add Stage</strong><br></div>
-               <br>
-               <select ng-model="stageattrs.interviewType">
-               <option ng-repeat="x in stageSelect track by $index">{{x}}</option>
-               </select>
-               <input id="field" class="mdl-textfield__input" type="date" placeholder="Date Completed" ng-model="stageattrs.interviewCompletedDate" required>
-               <input id="field" class="mdl-textfield__input" type="text" placeholder="Primary Interviewer Type" ng-model="stageattrs.interviewerType" required>
-               <div id="field"><strong>Last Follow Up</strong><br></div>
-               <input id="field" class="mdl-textfield__input" type="date" placeholder="Last Follow Up" ng-model="stageattrs.dateOfLastFollowUp" required>
-               <div id="field">Reply Received  <input type="checkbox" ng-model="stageattrs.interviewReplyReceived" required></div>
-               <br>
-               <input type="submit" ng-click="pushToStages($index)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-             </div>
-           </div>
-            <hr>
-           </ul>
-         </form>
-       </div>
-</body>
-<script src="app.js"></script>
-<script src="signup.js"></script>
-<script src="FormController.js"></script>
+    <script src="app.js"></script>
+    <script src="/allApps/allAppsController.js"></script>
+    <script src="/addApps/addAppsController.js"></script>
+  </body>
 </html>

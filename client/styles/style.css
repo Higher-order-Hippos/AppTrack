@@ -24,13 +24,11 @@ body {
 #btn-info {
   background-color: #7cc5dd;
   border-style: none;
-
 }
 
 #btn-primary {
   background-color: #6076a3;
   border-style: none;
-
 }
 
 #openApps {
@@ -100,7 +98,7 @@ col {
   padding: 15px;
   font-size: medium;
   overflow: hidden;
-  background-color: #edfaff;
+  background-color: #edeff4;
 }
 
 #search-one {
@@ -118,7 +116,7 @@ col {
   float: left;
   display: block;
   padding: 15px;
-  background-color: #edfaff;
+  background-color: #d1e6fc;
 }
 
 #list-item {
@@ -130,13 +128,12 @@ col {
 }
 
 #stage-name {
-  border-style: solid;
-  border-color: gray;
-  border-width: 1px;
   border-radius: 5px;
   width: 300px;
   height: 450px;
   font-size: large;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #edfaff;
   margin: 20px 20px 0 20px;
   position: relative;
   float: left;

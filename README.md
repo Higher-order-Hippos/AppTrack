@@ -19,3 +19,5 @@ The mongo database is hosted on https://mlab.com. It currently contains one coll
 6 - **Interview Tips**: Allow users to share tips on interviews for specific employers. For example, what type of code challenge was given?
 
 [![Stories in Ready](https://badge.waffle.io/ooOysters/AppTrack.png?label=ready&title=Ready)](http://waffle.io/ooOysters/AppTrack)
+
+Deployed on Heroku, take a look here: https://apptrakk.herokuapp.com

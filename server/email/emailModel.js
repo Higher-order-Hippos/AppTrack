@@ -101,7 +101,7 @@ const email = {
       console.log('Weekly Reminder Message Sent to ' + user.username + ': ', info.response); // if successfull console log message
       transporter.close(); // close transporter
       return info.response; // return info to stop duplicate emails from sending
-    })
+    });
   },
   newSend: (req, res) => {
     let user;
@@ -114,8 +114,7 @@ const email = {
         transporter.close(); // close transporter
         res.send(info.response); // send info back to res to stop email from trying to send again
       })
-    })
-
+    });
   },
   closedSend: (req, res) => {
     let user;

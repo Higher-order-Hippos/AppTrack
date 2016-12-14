@@ -9,7 +9,7 @@ angular.module('at.auth', [])
     Auth.signin($scope.user)
       .then((token) => {
         $window.localStorage.setItem('app-trak', token);
-        $location.path('/home');
+        $location.path('/allApps');
       })
       .catch((error) => {
         console.error(error);
@@ -22,7 +22,7 @@ angular.module('at.auth', [])
     Auth.signup($scope.user)
       .then((token) => {
         $window.localStorage.setItem('app-trak', token);
-        $location.path('/home');
+        $location.path('/allApps');
       })
       .catch((error) => {
         console.error(error);

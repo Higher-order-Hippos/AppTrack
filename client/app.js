@@ -42,7 +42,7 @@ angular.module('at', [
     templateUrl: './app/account/account.html',
     controller: 'AccountController'
   })
-  .otherwise({ redirectTo: '/home' });
+  .otherwise({ redirectTo: '/' });
 
   $httpProvider.interceptors.push('AttachTokens'); // will attach token to the localStorage
 })
